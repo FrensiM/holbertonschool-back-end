@@ -1,20 +1,20 @@
 #!/usr/bin/python3
-'''Getting my first apis'''
+""" Getting my first apis """
 import json
 import requests
 import sys
 
 
 if __name__ == "__main__":
-    '''api geter'''
+    """Get api bob"""
     todos_api = requests.get(
         'https://jsonplaceholder.typicode.com/todos/')
     user_api = requests.get(
         'https://jsonplaceholder.typicode.com/users/{}'.format(sys.argv[1]))
-    todos_data = todos_api.text
+    todo_data = todos_api.text
     user_data = user_api.text
     user = json.loads(user_data)
-    todos = json.loads(todos_data)
+    todos = json.loads(todo_data)
     completed = []
     all_todos = 0
     for todo in todos:
