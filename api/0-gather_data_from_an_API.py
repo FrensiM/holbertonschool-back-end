@@ -1,18 +1,18 @@
 #!/usr/bin/python3
-'''first api'''
-import requests
+'''Getting my first apis'''
 import json
+import requests
 import sys
 
 
 if __name__ == "__main__":
     '''api geter'''
-    user_api = requests.get(
-        'https://jsonplaceholder.typicode.com/users/{}'.format(sys.argv[1]))
     todos_api = requests.get(
         'https://jsonplaceholder.typicode.com/todos/')
-    user_data = user_api.text
+    user_api = requests.get(
+        'https://jsonplaceholder.typicode.com/users/{}'.format(sys.argv[1]))
     todos_data = todos_api.text
+    user_data = user_api.text
     user = json.loads(user_data)
     todos = json.loads(todos_data)
     completed = []
