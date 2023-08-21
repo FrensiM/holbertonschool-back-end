@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+'''first api'''
 import requests
 import json
 import sys
