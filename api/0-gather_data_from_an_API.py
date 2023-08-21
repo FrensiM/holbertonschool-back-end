@@ -21,6 +21,9 @@ if __name__ == "__main__":
         if todo['userId'] == user['id']:
             if todo['completed']:
                 completed.append(todo)
+                print("Employee Name: OK")
+        else:
+            print("Employee Name: Incorrect")
             all_todos += 1
     print(
         'Employee {} is done with tasks({}/{}):'
