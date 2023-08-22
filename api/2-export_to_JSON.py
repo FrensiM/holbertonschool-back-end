@@ -1,4 +1,5 @@
-""" Getting my first apis """
+#!/usr/bin/python3
+""" export to json """
 import json
 import requests
 import sys
