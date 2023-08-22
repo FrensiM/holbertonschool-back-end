@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 """ Getting my first apis """
 import json
 import requests
@@ -15,15 +14,13 @@ if __name__ == "__main__":
     user_data = user_api.text
     user = json.loads(user_data)
     todos = json.loads(todo_data)
-    completed = []
-    all_todos = 0
+    all_todos = []
     for todo in todos:
         if todo['userId'] == user['id']:
-            if todo['completed']:
-                completed.append(todo)
-            all_todos += 1
-    print(
-        'Employee {} is done with tasks({}/{}):'
-        .format(user['name'], len(completed), all_todos), file=sys.stdout)
-    for finished_todo in completed:
-        print('\t {}'.format(finished_todo['title']), file=sys.stdout)
+            all_todos.append(
+                {"task": todo['title'], "completed": todo['completed'],
+                 "username": user['username']})
+    user_tsk = {str(user['id']): all_todos}
+    filename = "{}.json".format(user['id'])
+    with open(filename, 'w') as file:
+        json.dump(user_tsk, file)
